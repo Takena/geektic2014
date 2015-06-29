@@ -5,3 +5,12 @@ app.controller('HelloCtrl', function($scope, $http) {
         $scope.helloMessage = helloMessage;
     });
 });
+
+
+app.controller('PersonneCtrl', function($scope, $http) {
+    $http.get('/api/Personne').success(function(listeUtilisateur) {
+        $scope.listeUtilisateur = listeUtilisateur;
+    });
+});
+
+

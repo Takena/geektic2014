@@ -1,0 +1,43 @@
+CREATE TABLE Personne (
+	    personne_id INTEGER NOT NULL IDENTITY,
+	    per_nom varchar(64),
+	    per_prenom varchar(64),
+	    genre varchar(12),
+		age integer,  
+		email varchar(64),
+		motDepasse varchar(64),
+		nbVisiteProfil integer, 
+		CharmesEnvoye integer,
+		CharmesRecu integer,
+		CharmesRestant integer
+	);
+
+CREATE TABLE PER_INT ( 
+	personne_id integer NOT NULL, 
+	interet_id integer NOT NULL, 
+	PRIMARY KEY(personne_id, interet_id), 
+	Constraint fk_persid FOREIGN KEY (personne_id) REFERENCES Personne(personne_id), 
+	Constraint fk_interid FOREIGN KEY (interet_id) REFERENCES Interets(interet_id)
+	);
+
+
+CREATE TABLE Interets (
+	interet_id integer NOT NULL IDENTITY, 
+	type_interet varchar (64),
+);
+
+INSERT INTO Personne VALUES (1,'HERBY', 'Cyrille', 'Geek', 18, 'jeanpierre@gmail.com', 'blabla', );
+INSERT INTO Personne (dev_id, dev_nom, dev_prenom, dev_lan_k) VALUES (2, 'PITON', 'Thomas', 3);
+INSERT INTO Personne (dev_id, dev_nom, dev_prenom, dev_lan_k) VALUES (3, 'COURTEL', 'Angelo', 2);
+INSERT INTO Personne (dev_id, dev_nom, dev_prenom, dev_lan_k) VALUES (1, 'HERBY', 'Cyrille', 1);
+INSERT INTO Personne (dev_id, dev_nom, dev_prenom, dev_lan_k) VALUES (2, 'PITON', 'Thomas', 3);
+INSERT INTO Personne (dev_id, dev_nom, dev_prenom, dev_lan_k) VALUES (3, 'COURTEL', 'Angelo', 2);
+
+
+INSERT INTO Personne (per_nom,per_prenom,genre,age,email,motDepasse,nbVisiteProfil,charmesEnvoye,charmesRecu,charmesRestant) VALUES ('Kiona','Jacob','Femme',70,'rutrum@metusAliquamerat.net','CNY77AIY4XC',1011,49,14,4),('Tamara','Patrick','Femme',21,'ornare.sagittis@nonummyut.com','CFD21QCW5IH',7014,26,32,9),('Macey','Hilel','',62,'arcu.Sed.eu@Nulla.org','YYB19NLF5EK',103,2,16,36),('Len','Lee','',45,'ut@anteiaculis.org','IQZ07PCH6MD',7379,3,25,39),('Bryar','Yvette','',61,'eu.lacus.Quisque@Nuncacsem.co.uk','ZZY73SHI4AV',6595,27,9,8),('Xyla','Miriam','Homme',22,'vitae.erat.vel@ProindolorNulla.edu','VYX98PLT6KG',7908,41,19,20),('Carissa','Ivory','',34,'senectus@sociisnatoque.ca','ANY31JYX2JD',3491,40,6,43),('Nicholas','Isabelle','',46,'congue.turpis.In@semperetlacinia.org','FIK34EHU1YI',9826,2,47,43),('Seth','Shelby','Homme',65,'elit.Etiam@necleo.edu','XYI14AVI6VA',3234,50,39,10),('Jennifer','Solomon','',18,'nec@ipsumSuspendisse.ca','VSM17IZY3EA',2991,33,24,18);
+
+INSERT INTO Personne (per_nom,per_prenom,genre,age,email,motDepasse,nbVisiteProfil,charmesEnvoye,charmesRecu,charmesRestant) VALUES ('Leigh','Holmes','',23,'et.rutrum.non@arcu.org','CVF41ETC0EY',4837,29,20,11),('Indigo','Baker','',56,'Proin@eutellusPhasellus.co.uk','ICN81HOZ0KE',9767,13,10,8),('Catherine','Paul','Femme',48,'Cum.sociis@id.org','KRE62JZH1RK',9313,8,32,3),('Keiko','Ina','Homme',21,'iaculis@malesuadavel.edu','MKP49KSO5UO',7679,25,47,42),('Elton','Skyler','Homme',67,'vitae.erat@metuseuerat.co.uk','IDS90UAF9TV',6043,22,28,30),('Lunea','Reed','Femme',54,'mi.Aliquam.gravida@magna.com','AVR73PWC1LR',6684,35,14,36),('Irene','Mari','',67,'massa@tincidunt.edu','ZKD09DXW3UJ',8048,7,33,48),('Bethany','Amity','Femme',29,'Nullam.suscipit.est@Mauris.org','IQQ82DBF8ZR',9665,10,44,35),('Gretchen','Xantha','',21,'commodo.hendrerit.Donec@convallisin.org','HSB18NAN3KL',1139,18,4,50),('Vanna','Jason','Femme',42,'interdum.enim.non@ligulaDonec.com','NZE61EYN2FR',9899,50,41,8);
+
+INSERT INTO Personne (per_nom,per_prenom,genre,age,email,motDepasse,nbVisiteProfil,charmesEnvoye,charmesRecu,charmesRestant) VALUES ('George','Tiger','Femme',32,'sociis.natoque.penatibus@variusNam.edu','DHR23FCE8YG',6939,9,8,23),('Olympia','Carolyn','Homme',47,'ridiculus.mus.Aenean@Nulla.org','JYE16SBA4OX',8253,50,31,35),('Graiden','Petra','',36,'ipsum@bibendumullamcorper.ca','CHW39ORG1MH',6639,14,44,1),('Regina','Adam','',60,'vitae.semper.egestas@nonlaciniaat.ca','OII94BUY8AT',5870,4,32,10),('Adara','Robert','Femme',45,'hendrerit.consectetuer.cursus@porttitorvulputate.net','XEA99NOY0OW',9954,37,44,49),('Giselle','Maxwell','Femme',26,'tempor.lorem@mi.edu','JLX44FYP0IS',7520,35,11,40),('Amelia','Reed','',27,'at.velit.Pellentesque@mauris.com','DVS85FWL5ZQ',3861,16,27,45),('Kareem','Candice','',20,'mauris.eu@volutpatNulla.edu','ONJ51HLU5IR',6183,5,26,50),('Bernard','Kelly','',38,'euismod@posuere.edu','QTD48DNB4HP',1380,45,13,47),('Uma','Lesley','Femme',57,'auctor@faucibusidlibero.com','HNO08GPV5VX',5375,4,18,48);
+
+INSERT INTO Personne (per_nom,per_prenom,genre,age,email,motDepasse,nbVisiteProfil,charmesEnvoye,charmesRecu,charmesRestant) VALUES ('Russell','Sophia','',43,'arcu.Sed.eu@vitaemauris.com','DCC20BSX3OX',9509,6,38,11),('Raphael','Lee','Homme',70,'et.netus.et@aliquetlibero.net','FMG19QRR5KG',9375,29,31,39),('Sybill','Gay','',27,'malesuada@ligulaAliquam.ca','NDQ91VWX6OG',2410,18,23,17),('Stephanie','Cora','',33,'Suspendisse.dui.Fusce@massaIntegervitae.co.uk','PBK39VQQ4YZ',1369,46,43,33),('Berk','Christopher','Homme',70,'nec@quis.edu','TAQ51WXZ4EN',448,37,29,10),('Quincy','Rogan','',69,'nascetur@egetmagnaSuspendisse.org','VOU27POW9LD',6401,35,37,31),('Rebekah','Francesca','',62,'elementum@nequeSedeget.org','CNO22FND5TG',3190,29,45,44),('Clare','Amal','Homme',65,'natoque.penatibus@semut.ca','DDJ89ACM6KK',3347,7,4,8),('Alec','Armando','Homme',59,'aliquet.Phasellus.fermentum@ac.ca','RIN30DSP7ZN',9834,3,43,28),('Shannon','Nadine','Homme',50,'velit.Sed@Fusce.edu','QJD46QHD8AO',8536,48,36,46);

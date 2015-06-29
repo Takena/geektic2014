@@ -2,11 +2,49 @@
 
 <html ng-app="geektic">
     <head>
-        <title>Geektic</title>
+        <title>Geektic</title>       
+	    <!-- Bootstrap core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <!-- Bootstrap theme -->
+	    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	
+	    <!-- Custom styles for this template -->
+	    <link href="theme.css" rel="stylesheet">
+	
+	    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+	    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+	
+	    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
     </head>
-    <body ng-controller="HelloCtrl">
-        <h1>{{ helloMessage.message }}</h1>
-
+    <body>
+        <h1>Geektic</h1>
+		<ul>
+			<button type="button" class="btn btn-lg btn-primary" href="/RechercheUtilisateur"> Recherche d'un membre </button>
+	
+		
+	    
+	    <div ng-controller="PersonneCtrl">
+			<TABLE BORDER="1" class="table table-striped">
+				<CAPTION>Liste des utilisateurs</CAPTION>
+			  	<TR> 
+					<TH> NOM </TH> 
+					<TH> PRENOM </TH> 
+					<TH> AGE </TH> 
+		 		</TR>
+		  		<TR ng-repeat="geek in listeUtilisateur" value="{{geek.id}}">
+		  			<TD> {{ geek.nom }} </TD> 
+					<TD> {{ geek.prenom }} </TD> 
+					<TD> {{ geek.age }} </TD>		
+		  		</TR>
+		  	</TABLE>
+		</div>
+	    
+	    
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>
         <script src="/js/app.js"></script>
