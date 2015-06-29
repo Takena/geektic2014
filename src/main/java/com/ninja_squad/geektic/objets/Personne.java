@@ -46,30 +46,32 @@ public class Personne {
 	@Column(name = "charmesrestant")
 	protected int nbCharmesRestant; 
 	
-	@ManyToMany
-	  @JoinTable
+	/*@ManyToMany
+	@JoinTable
 	  (
 	      name="PER_INT",
 	      joinColumns={ @JoinColumn(name="PERSONNE_ID") },
-	      inverseJoinColumns={ @JoinColumn(name="INTERETS_ID") }
+	      inverseJoinColumns={ @JoinColumn(name="INTERET_ID") }
 	  )
 	 private List<Interets> listeCentreInteret;
-	 //TODO : protected List<Interets> listeInteret; 
+	 //TODO : protected List<Interets> listeInteret; */
 	
 	
 	/**
 	 * @return the listeCentreInteret
 	 */
+	/*
 	public List<Interets> getListeCentreInteret() {
 		return listeCentreInteret;
 	}
 
 	/**
 	 * @param listeCentreInteret the listeCentreInteret to set
-	 */
+	 *//*
 	public void setListeCentreInteret(List<Interets> listeCentreInteret) {
 		this.listeCentreInteret = listeCentreInteret;
 	}
+	*/
 
 	public Personne(String nom, String prenom, int age,Sexe genre, String email, String motdepasse){
 		
