@@ -14,5 +14,33 @@ public class Interets {
 	
 	@Column(name="type_interet")
 	private String centreInteret;
+
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return Id;
+	}
+
+	/**
+	 * @return the centreInteret
+	 */
+	public String getCentreInteret() {
+		return centreInteret;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	/**
+	 * @param centreInteret the centreInteret to set
+	 */
+	public void setCentreInteret(String centreInteret) {
+		this.centreInteret = centreInteret;
+	}
 }
 

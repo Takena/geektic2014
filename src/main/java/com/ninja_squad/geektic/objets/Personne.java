@@ -57,6 +57,20 @@ public class Personne {
 	 //TODO : protected List<Interets> listeInteret; 
 	
 	
+	/**
+	 * @return the listeCentreInteret
+	 */
+	public List<Interets> getListeCentreInteret() {
+		return listeCentreInteret;
+	}
+
+	/**
+	 * @param listeCentreInteret the listeCentreInteret to set
+	 */
+	public void setListeCentreInteret(List<Interets> listeCentreInteret) {
+		this.listeCentreInteret = listeCentreInteret;
+	}
+
 	public Personne(String nom, String prenom, int age,Sexe genre, String email, String motdepasse){
 		
 		this.nom = nom; 

@@ -35,11 +35,13 @@
 					<TH> NOM </TH> 
 					<TH> PRENOM </TH> 
 					<TH> AGE </TH> 
+					<TH> INTERETS </TH>
 		 		</TR>
 		  		<TR ng-repeat="geek in listeUtilisateur" value="{{geek.id}}">
 		  			<TD> {{ geek.nom }} </TD> 
 					<TD> {{ geek.prenom }} </TD> 
-					<TD> {{ geek.age }} </TD>		
+					<TD> {{ geek.age }} </TD>
+					<TD> <li ng-repeat="centreInteret in geek.listeCentreInteret"> {{ Interet.centreInteret }}</li> </TD>		
 		  		</TR>
 		  	</TABLE>
 		</div>
