@@ -25,24 +25,52 @@ public class PersonneDAO {
     }
     
 	public List<Personne> findByNom(String nom) {
-		String jpql = "SELECT p FROM Personne p WHERE p.per_nom = 'Quatiglininini'";
-			//	+ ""+nom+"'"  ;
+		String jpql = "SELECT p FROM Personne p WHERE p.per_nom = :nom"  ;
 		TypedQuery<Personne> query = em.createQuery(jpql, Personne.class);
 		return query.getResultList();	
 	}
 
 	public List<Personne> findByPrenom(String prenom) {
-		String jpql = "SELECT p FROM Personne p WHERE p.per_prenom = '"+prenom+"'"  ;
+		String jpql = "SELECT p FROM Personne p WHERE p.per_prenom = :prenom"  ;
 		TypedQuery<Personne> query = em.createQuery(jpql, Personne.class);
+		return query.getResultList();
+	}
+	
+	public List<Personne> findByGenderInterest(String gender,String centreInteret) {
+		String jpql ="";
+		if("undefined".equalsIgnoreCase(centreInteret)){
+			if("undefined".equalsIgnoreCase(gender)){
+				jpql = "SELECT p FROM Personne p ";			
+			}
+			else{
+				jpql = "SELECT p FROM Personne p WHERE p.genre = :gender";
+			}
+		}
+		else{
+			if("undefined".equalsIgnoreCase(gender)){
+				jpql = "SELECT p FROM Personne p "
+						+ "INNER JOIN p.listeCentreInteret i "
+						+ "WHERE i.centreInteret = :centreInteret" ;
+			}
+			else{
+				jpql = "SELECT p FROM Personne p "
+						+ "INNER JOIN p.listeCentreInteret i "
+						+ "WHERE p.genre = :gender "
+						+ "AND i.centreInteret = :centreInteret" ;
+			}
+		}
+	
+		TypedQuery<Personne> query = em.createQuery(jpql, Personne.class).setParameter("centreInteret", centreInteret).setParameter("genre", gender);
 		return query.getResultList();
 	}
 
 	public List<Personne> findByInteret(String centreInteret) {
-		String jpql = "SELECT p FROM Per_int pint "
-				+ "INNER JOIN pint.Personne p "
-				+ "INNER JOIN pint.Interets i "
-				+ "WHERE i.type_interet = "+centreInteret ;
-		TypedQuery<Personne> query = em.createQuery(jpql, Personne.class);
+		String jpql = "SELECT p FROM Personne p "
+				+ "INNER JOIN p.listeCentreInteret i "
+				+ "WHERE i.centreInteret = :centreInteret" ;
+		TypedQuery<Personne> query = em.createQuery(jpql, Personne.class).setParameter("centreInteret", centreInteret);
 		return query.getResultList();	
 	}
+	
+	
 }

@@ -24,54 +24,65 @@ public class Personne {
    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq")
 	@Column(name = "personne_id")
 	protected Long id; 
+	
 	@Column(name = "per_nom")
 	protected String nom;
+	
 	@Column(name = "per_prenom")
 	protected String prenom;
+	
 	@Column(name = "email")
 	protected String email;
+	
 	@Column(name = "motdepasse")
 	protected String motDepasse;
+	
 	@Column(name = "genre")
 	@Enumerated(EnumType.STRING)
 	protected Sexe genre;
+	
 	@Column(name = "age")
 	protected int age;
+	
 	@Column(name = "nbvisiteprofil")
 	protected int nbVisiteProfil;
+	
 	@Column(name = "charmesenvoye")
 	protected int nbCharmesEnvoye;
+	
 	@Column(name = "charmesrecu")
 	protected int nbCharmesRecu;
+	
 	@Column(name = "charmesrestant")
 	protected int nbCharmesRestant; 
 	
-	/*@ManyToMany
+	@ManyToMany
 	@JoinTable
 	  (
 	      name="PER_INT",
 	      joinColumns={ @JoinColumn(name="PERSONNE_ID") },
 	      inverseJoinColumns={ @JoinColumn(name="INTERET_ID") }
 	  )
+	
 	 private List<Interets> listeCentreInteret;
-	 //TODO : protected List<Interets> listeInteret; */
+	 
 	
 	
 	/**
 	 * @return the listeCentreInteret
 	 */
-	/*
+	
 	public List<Interets> getListeCentreInteret() {
 		return listeCentreInteret;
 	}
 
 	/**
 	 * @param listeCentreInteret the listeCentreInteret to set
-	 *//*
+	 */
 	public void setListeCentreInteret(List<Interets> listeCentreInteret) {
 		this.listeCentreInteret = listeCentreInteret;
 	}
-	*/
+	
 
 	public Personne(String nom, String prenom, int age,Sexe genre, String email, String motdepasse){
 		

@@ -13,10 +13,40 @@ app.controller('PersonneCtrl', function($scope, $http) {
     });
 });
 
-angular.module('ui.bootstrap.demo').controller('PopoverDemoCtrl', function ($scope) {
-	  $scope.dynamicPopover = {
-	    content: 'Hello, World!',
-	    templateUrl: 'myPopoverTemplate.html',
-	    title: 'Title'
-	  };
-	});
+app.controller('InteretsCtrl', function($scope, $http) {
+    $http.get('/api/Interets').success(function(listeInteret) {
+        $scope.listeInteret = listeInteret;
+    });
+    
+app.controller('SexeCtrl', function($scope) {
+	$scope.options = ['Homme', 'Femme'];
+});
+    
+    $scope.filtre = function(genre,interets) {
+    	$http.get("/api/Personne/"+genre+"/"+interets).success(function(listeUtilisateur) {
+            $scope.listeUtilisateur = listeUtilisateur;
+        });
+    };
+});
+
+app.config(function($routeProvider) {
+                    $routeProvider.
+                      when('/ShowProfile', {
+                        templateUrl: 'templates/profile.html',
+                        controller: 'SearchingController'
+                    }).
+                    when('/FilterListe', {
+                      templateUrl: 'templates/listeFiltre.html',
+                      controller: 'SearchingController'
+                    }).
+                    otherwise({
+                        redirectTo: '/'
+                      });
+});
+
+
+app.controller('SearchingController', function($scope, $http, $routeParams) {
+    $http.get("/api/Personne/"+$routeParams.genre+"/"+$routeParams.centreInteret).success(function(listeUtilisateur) {
+        $scope.listeUtilisateur = listeUtilisateur;
+    });
+});

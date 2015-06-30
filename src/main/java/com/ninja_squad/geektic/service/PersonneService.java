@@ -23,7 +23,12 @@ public class PersonneService {
 
     public List<Personne> listeUtilisateur() {
     	System.out.print(dao.getAll());
-    	return dao.getAll();
+    	return dao.getAll();     
+    }
+    
+    public List<Personne> listeUtilisateurByGenderAndCenter(String gender, String centreInteret) {
+    
+    	return dao.findByGenderInterest(gender, centreInteret);
          
     }
 

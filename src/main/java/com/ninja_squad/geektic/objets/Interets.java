@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Interets {
 	@Id
 	@Column(name="Interet_id")
-	private Long Id; 
+	private Long id; 
 	
 	@Column(name="type_interet")
 	private String centreInteret;
@@ -19,7 +19,7 @@ public class Interets {
 	 * @return the id
 	 */
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	/**
@@ -33,7 +33,7 @@ public class Interets {
 	 * @param id the id to set
 	 */
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	/**
